@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="excel-toolkit-for-py",
-    version="0.1.1",
+    name="excel_toolkit_for_py",
+    version="0.1.2",
     author="Roberto Lima",
     author_email="robertolima.izphera@gmail.com",
     description="📊 Facilite a leitura, manipulação e exportação de arquivos Excel e CSV com Python.",

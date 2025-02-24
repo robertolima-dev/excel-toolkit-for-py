@@ -10,8 +10,8 @@ build-backend = "setuptools.build_meta"
 packages = ["excel_toolkit"]
 
 [project]
-name = "excel-toolkit-for-py"
-version = "0.1.1"
+name = "excel_toolkit_for_py"
+version = "0.1.2"
 description = "📊 Facilite a leitura, manipulação e exportação de arquivos Excel e CSV com Python."
 authors = [
     { name = "Roberto Lima", email = "robertolima.izphera@gmail.com" }

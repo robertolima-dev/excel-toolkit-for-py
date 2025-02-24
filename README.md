@@ -19,7 +19,7 @@
 Instale o pacote via **PyPI**:
 
 ```bash
-pip install excel-toolkit-for-py
+pip install excel_toolkit_for_py
 ```
 
 > O pacote depende de `pandas` e `openpyxl`, que serão instalados automaticamente.
