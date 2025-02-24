@@ -1,7 +1,12 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 # tests/test_writer.py
 import pytest
 import pandas as pd
-from excelify.writer import write_excel, write_csv
+from excel_toolkit.writer import write_excel, write_csv
 
 
 def test_write_excel(tmp_path):

@@ -1,4 +1,4 @@
-# excelify/writer.py
+# excel_toolkit/writer.py
 import pandas as pd
 
 

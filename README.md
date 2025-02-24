@@ -1,6 +1,6 @@
-# 📚 **Excelify - Manipulação Eficiente de Arquivos Excel**
+# 📚 **excel-toolkit - Manipulação Eficiente de Arquivos Excel**
 
-📊 **Excelify** é um pacote Python que facilita a **leitura, manipulação e exportação de arquivos Excel e CSV** usando `pandas` e `openpyxl`. Ideal para automação de processos com planilhas!
+📊 **excel-toolkit** é um pacote Python que facilita a **leitura, manipulação e exportação de arquivos Excel e CSV** usando `pandas` e `openpyxl`. Ideal para automação de processos com planilhas!
 
 ---
 
@@ -19,7 +19,7 @@
 Instale o pacote via **PyPI**:
 
 ```bash
-pip install excelify
+pip install excel-toolkit-for-py
 ```
 
 > O pacote depende de `pandas` e `openpyxl`, que serão instalados automaticamente.
@@ -31,7 +31,7 @@ pip install excelify
 ### 📥 **Leitura de Arquivos Excel e CSV**
 
 ```python
-from excelify.reader import read_excel, read_csv
+from excel_toolkit.reader import read_excel, read_csv
 
 # Lendo um arquivo Excel (planilha 'Sheet1')
 df_excel = read_excel("dados.xlsx", sheet_name="Sheet1")
@@ -47,7 +47,7 @@ print(df_csv.head())
 ### 📤 **Exportação de DataFrames para Excel e CSV**
 
 ```python
-from excelify.writer import write_excel, write_csv
+from excel_toolkit.writer import write_excel, write_csv
 import pandas as pd
 
 # Criando um DataFrame de exemplo
@@ -69,8 +69,8 @@ write_csv(df, "saida.csv")
 
 ```python
 # Leitura -> Manipulação -> Escrita
-from excelify.reader import read_excel
-from excelify.writer import write_excel
+from excel_toolkit.reader import read_excel
+from excel_toolkit.writer import write_excel
 
 # Ler planilha
 df = read_excel("dados.xlsx", sheet_name="Sheet1")
@@ -103,9 +103,9 @@ pytest -v
 ## 🏗 **Estrutura do Projeto**
 
 ```
-excelify/
+excel_toolkit/
 │
-├── excelify/                # 📦 Código do pacote
+├── excel_toolkit/                # 📦 Código do pacote
 │   ├── __init__.py
 │   ├── reader.py            # 📥 Funções de leitura de arquivos
 │   ├── writer.py            # 📤 Funções de exportação de arquivos

@@ -1,8 +1,12 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # tests/test_reader.py
 import pytest
 import pandas as pd
-from excelify.reader import read_excel, read_csv
+from excel_toolkit.reader import read_excel, read_csv
 
 
 def test_read_excel(tmp_path):
