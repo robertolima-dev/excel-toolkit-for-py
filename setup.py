@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="excel_toolkit_for_py",
-    version="0.1.2",
+    version="1.1.2",
     author="Roberto Lima",
     author_email="robertolima.izphera@gmail.com",
-    description="📊 Facilite a leitura, manipulação e exportação de arquivos Excel e CSV com Python.",
+    description="📊 Facilite a leitura, manipulação, conversão, validação e exportação de arquivos Excel e CSV com Python.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/robertolima-dev/excel-toolkit-for-py",

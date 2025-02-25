@@ -7,12 +7,12 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["excel_toolkit"]
+packages = ["excel_toolkit_for_py"]
 
 [project]
 name = "excel_toolkit_for_py"
-version = "0.1.2"
-description = "📊 Facilite a leitura, manipulação e exportação de arquivos Excel e CSV com Python."
+version = "1.1.2"
+description = "📊 Facilite a leitura, manipulação, conversão, validação e exportação de arquivos Excel e CSV com Python."
 authors = [
     { name = "Roberto Lima", email = "robertolima.izphera@gmail.com" }
 ]

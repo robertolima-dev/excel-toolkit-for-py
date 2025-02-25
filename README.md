@@ -1,6 +1,6 @@
-# 📚 **excel-toolkit - Manipulação Eficiente de Arquivos Excel**
+# 📚 **excel-toolkit-for-py - Manipulação e Conversão Avançada de Arquivos Excel**
 
-📊 **excel-toolkit** é um pacote Python que facilita a **leitura, manipulação e exportação de arquivos Excel e CSV** usando `pandas` e `openpyxl`. Ideal para automação de processos com planilhas!
+📊 **excel-toolkit-for-py** é um pacote Python completo que facilita a **leitura, manipulação, validação e conversão de arquivos Excel e CSV**, utilizando `pandas` e `openpyxl`. Ideal para automações robustas envolvendo planilhas!
 
 ---
 
@@ -8,8 +8,10 @@
 
 - 📥 **Leitura de arquivos Excel (`.xlsx`) e CSV (`.csv`).**
 - 📤 **Exportação de DataFrames para Excel e CSV.**
+- 🔄 **Conversão entre Excel e JSON.**
+- 🔗 **Junção e divisão de arquivos Excel.**
+- 🛡️ **Validações automatizadas de dados e esquemas.**
 - 📊 **Suporte a múltiplas planilhas.**
-- 🔄 **Manipulação simplificada de dados com `pandas`.**
 - ✅ **Integração com `pytest` para testes automatizados.**
 
 ---
@@ -22,7 +24,7 @@ Instale o pacote via **PyPI**:
 pip install excel_toolkit_for_py
 ```
 
-> O pacote depende de `pandas` e `openpyxl`, que serão instalados automaticamente.
+> 💡 As dependências `pandas` e `openpyxl` são instaladas automaticamente.
 
 ---
 
@@ -31,9 +33,9 @@ pip install excel_toolkit_for_py
 ### 📥 **Leitura de Arquivos Excel e CSV**
 
 ```python
-from excel_toolkit.reader import read_excel, read_csv
+from excel_toolkit_for_py.reader import read_excel, read_csv
 
-# Lendo um arquivo Excel (planilha 'Sheet1')
+# Lendo um arquivo Excel
 df_excel = read_excel("dados.xlsx", sheet_name="Sheet1")
 print(df_excel.head())
 
@@ -47,55 +49,53 @@ print(df_csv.head())
 ### 📤 **Exportação de DataFrames para Excel e CSV**
 
 ```python
-from excel_toolkit.writer import write_excel, write_csv
+from excel_toolkit_for_py.writer import write_excel, write_csv
 import pandas as pd
 
-# Criando um DataFrame de exemplo
 df = pd.DataFrame({
     "Nome": ["Alice", "Bob", "Carlos"],
     "Idade": [25, 30, 22]
 })
 
-# Exportando para Excel
 write_excel(df, "saida.xlsx", sheet_name="Usuarios")
-
-# Exportando para CSV
 write_csv(df, "saida.csv")
 ```
 
 ---
 
-### 🔄 **Fluxo Completo: Leitura, Manipulação e Escrita**
+### 🔄 **Conversão: Excel para JSON e vice-versa**
 
 ```python
-# Leitura -> Manipulação -> Escrita
-from excel_toolkit.reader import read_excel
-from excel_toolkit.writer import write_excel
+from excel_toolkit_for_py.conversions import excel_to_json, json_to_excel
 
-# Ler planilha
-df = read_excel("dados.xlsx", sheet_name="Sheet1")
+# Excel -> JSON
+json_data = excel_to_json("dados.xlsx")
+print(json_data)
 
-# Filtrar usuários com mais de 25 anos
-df_filtrado = df[df["Idade"] > 25]
+# JSON -> Excel
+json_to_excel(json_data, "novo_dados.xlsx")
+```
 
-# Salvar dados filtrados em um novo arquivo
-write_excel(df_filtrado, "dados_filtrados.xlsx", sheet_name="Filtrados")
+---
+
+### 🛡️ **Validação de Estrutura e Dados**
+
+```python
+from excel_toolkit_for_py.validations import validate_excel_schema
+
+schema = {"Nome": str, "Idade": int}
+validacao = validate_excel_schema("dados.xlsx", schema)
+print("✅ Validação bem-sucedida!" if validacao else "❌ Validação falhou.")
 ```
 
 ---
 
 ## 🧪 **Testes**
 
-Execute os testes unitários com `pytest`:
+Execute os testes unitários com **pytest**:
 
 ```bash
-pytest tests/
-```
-
-Para saída detalhada:
-
-```bash
-pytest -v
+pytest tests/ --maxfail=1 --disable-warnings -v
 ```
 
 ---
@@ -105,20 +105,24 @@ pytest -v
 ```
 excel_toolkit/
 │
-├── excel_toolkit/                # 📦 Código do pacote
+├── excel_toolkit_for_py/                # 📦 Código do pacote
 │   ├── __init__.py
-│   ├── reader.py            # 📥 Funções de leitura de arquivos
-│   ├── writer.py            # 📤 Funções de exportação de arquivos
+│   ├── reader.py            # 📥 Funções de leitura
+│   ├── writer.py            # 📤 Funções de exportação
+│   ├── conversions.py       # 🔄 Funções de conversão Excel <-> JSON
+│   ├── validations.py       # 🛡️ Funções de validação de dados
 │
 ├── tests/                   # 🧪 Testes unitários
 │   ├── test_reader.py
 │   ├── test_writer.py
+│   ├── test_conversions.py
+│   ├── test_validations.py
 │
-├── setup.py                 # ⚙️ Configuração para publicação no PyPI
-├── pyproject.toml           # 📦 Configuração moderna (opcional)
+├── setup.py                 # ⚙️ Configuração para PyPI
+├── pyproject.toml           # 📦 Configuração moderna
 ├── README.md                # 📚 Documentação do projeto
 ├── LICENSE                  # 📜 Licença MIT
-└── MANIFEST.in              # 📋 Arquivos extras incluídos
+└── MANIFEST.in              # 📋 Inclusão de arquivos extras
 ```
 
 ---
@@ -128,6 +132,7 @@ excel_toolkit/
 Distribuído sob a **Licença MIT**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
+
 ## 👨‍💻 **Autor**
 
 Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** 🚀✨
@@ -137,21 +142,10 @@ Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** �
 ## 💬 **Contato**
 
 - 📧 **Email**: robertolima.izphera@gmail.com
-- 💼 **LinkedIn**: [Roberto Lima](https://www.linkedin.com/in/roberto-lima-01/)  
+- 💼 **LinkedIn**: [Roberto Lima](https://www.linkedin.com/in/roberto-lima-01/)
 
 ---
 
 ## ⭐ **Gostou do projeto?**
 
-Deixe uma ⭐ no repositório e compartilhe com a comunidade! 🚀✨  
-```
-
----
-
-## 🌟 **O que este README oferece?**
-- 🎯 **Descrição clara** do projeto e seu propósito.  
-- 🛠 **Instruções detalhadas de instalação** e **uso prático**.  
-- 🧪 **Guia de testes** para garantir que o código funciona.  
-- 🏗 **Estrutura do projeto** para facilitar a navegação.  
-- 🔄 **Seção de contribuição** para quem deseja ajudar no desenvolvimento.  
-- 📝 **Licença e informações do autor** para transparência.
+Deixe uma ⭐ no repositório e compartilhe com a comunidade! 🚀✨
