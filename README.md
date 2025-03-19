@@ -143,6 +143,8 @@ Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** �
 
 - 📧 **Email**: robertolima.izphera@gmail.com
 - 💼 **LinkedIn**: [Roberto Lima](https://www.linkedin.com/in/roberto-lima-01/)
+- 💼 **Website**: [Roberto Lima](https://robertolima-developer.vercel.app/)
+- 💼 **Gravatar**: [Roberto Lima](https://gravatar.com/deliciouslyautomaticf57dc92af0)
 
 ---
 

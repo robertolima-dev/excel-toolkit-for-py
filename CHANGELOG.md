@@ -1,6 +1,10 @@
 # 📜 Changelog
 
 
+## [1.1.3] - 2025-03-19
+### Adicionado
+- Instalações de dependências
+
 ## [1.1.2] - 2025-02-25
 ### Adicionado
 - Novas validações e conversões
