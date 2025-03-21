@@ -73,6 +73,22 @@ write_csv(df, "saida.csv")
 
 ---
 
+### 📤 **Converter uma lista em Excel**
+
+```python
+from text_cleaner_for_py.excel_utils import write_list_to_excel
+
+dados = [["Nome", "Idade", "Cidade"],
+         ["Alice", 25, "São Paulo"],
+         ["Carlos", 30, "Rio de Janeiro"],
+         ["Mariana", 22, "Belo Horizonte"]]
+
+write_list_to_excel("dados.xlsx", dados)
+print("Arquivo Excel criado com sucesso!")
+```
+
+---
+
 ### 🔄 **Conversão: Excel para JSON e vice-versa**
 
 ```python

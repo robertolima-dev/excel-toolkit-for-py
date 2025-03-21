@@ -1,7 +1,11 @@
 # 📜 Changelog
 
 
-## [1.1.4] - 2025-03-21
+## [1.1.6] - 2025-03-21
+### Adicionado
+- Ajuste na documentação
+
+## [1.1.5] - 2025-03-21
 ### Adicionado
 - Adionado a função write_list_to_excel
 
