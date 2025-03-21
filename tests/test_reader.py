@@ -1,11 +1,12 @@
-import sys
 import os
+import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))  # noqa
 
-import pytest
-import pandas as pd
-from excel_toolkit_for_py.reader import read_excel, read_csv
+import pandas as pd  # noqa
+import pytest  # noqa
+
+from excel_toolkit_for_py.reader import read_csv, read_excel  # noqa
 
 
 def test_read_excel(tmp_path):

@@ -33,11 +33,21 @@ pip install excel_toolkit_for_py
 ### 📥 **Leitura de Arquivos Excel e CSV**
 
 ```python
-from excel_toolkit_for_py.reader import read_excel, read_csv
+from excel_toolkit_for_py.reader import read_excel, read_csv, get_sheet_names, get_dict_sheets
+
+sheet_names = get_sheet_names("dados.xlsx")
+print(sheet_names) # ['Sheet1', 'Sheet2']
+
+# Retorna um dicionário com todas as abas
+sheet_names = get_dict_sheets("dados.xlsx", sheet_name=None)
+print(sheet_names)
 
 # Lendo um arquivo Excel
 df_excel = read_excel("dados.xlsx", sheet_name="Sheet1")
-print(df_excel.head())
+print(df_excel.head(10)) # Retorna os 10 primeiros registros
+print(df_excel.tail(8)) # Retorna os 8 últimos registros
+print(df_excel.to_string()) # Converte a planilha toda para string
+print(df_excel) # Todos os dados, porém se a planilha for grande, trunca
 
 # Lendo um arquivo CSV
 df_csv = read_csv("dados.csv")

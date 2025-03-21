@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def _check_dtype(series, expected_type):
     """
     🎯 Verifica se a série possui o tipo de dado esperado.
@@ -10,11 +11,11 @@ def _check_dtype(series, expected_type):
         if expected_type == int:
             return series.dropna().apply(lambda x: float(x).is_integer()).all()
         elif expected_type == float:
-            return series.dropna().apply(lambda x: isinstance(x, (float, int))).all()
+            return series.dropna().apply(lambda x: isinstance(x, (float, int))).all() # noqa501
         elif expected_type == str:
             return series.dropna().apply(lambda x: isinstance(x, str)).all()
         else:
-            return series.dropna().apply(lambda x: isinstance(x, expected_type)).all()
+            return series.dropna().apply(lambda x: isinstance(x, expected_type)).all() # noqa501
     except Exception:
         return False
 
@@ -25,7 +26,7 @@ def validate_excel_schema(file_path, schema, sheet_name=None):
 
     Args:
         file_path (str): Caminho para o arquivo Excel.
-        schema (dict): Dicionário com o nome da coluna e o tipo esperado. Ex.: {"Nome": str, "Idade": int}
+        schema (dict): Dicionário com o nome da coluna e o tipo esperado. Ex.: {"Nome": str, "Idade": int} # noqa501
         sheet_name (str ou None): Nome da planilha. Se None, lê a primeira.
 
     Returns:
@@ -52,7 +53,7 @@ def validate_excel_schema(file_path, schema, sheet_name=None):
                 # 🎯 Validação robusta de tipo
                 if not _check_dtype(df[coluna], tipo):
                     resultado["valid"] = False
-                    resultado["errors"].append(f"⚠️ Coluna '{coluna}' com tipo inválido. Esperado: {tipo.__name__}")
+                    resultado["errors"].append(f"⚠️ Coluna '{coluna}' com tipo inválido. Esperado: {tipo.__name__}") # noqa501
 
     except Exception as e:
         resultado["valid"] = False
