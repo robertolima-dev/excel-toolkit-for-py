@@ -1,5 +1,10 @@
 # 📜 Changelog
 
+
+## [1.1.4] - 2025-03-21
+### Adicionado
+- Adionado a função write_list_to_excel
+
 ## [1.1.4] - 2025-03-21
 ### Adicionado
 - Adionado novas funções

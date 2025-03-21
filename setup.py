@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="excel_toolkit_for_py",
-    version="1.1.4",
+    version="1.1.5",
     author="Roberto Lima",
     author_email="robertolima.izphera@gmail.com",
     description="📊 Facilite a leitura, manipulação, conversão, validação e exportação de arquivos Excel e CSV com Python.", # noqa501
@@ -25,4 +25,9 @@ setup(
     python_requires=">=3.6",
     include_package_data=True,
     license="MIT",
+    project_urls={
+        "Homepage": "https://github.com/robertolima-dev/excel-toolkit-for-py", # noqa501
+        "Repository": "https://github.com/robertolima-dev/excel-toolkit-for-py", # noqa501
+        "Issues": "https://github.com/robertolima-dev/excel-toolkit-for-py/issues", # noqa501
+    },
 )
