@@ -1,6 +1,10 @@
 # 📜 Changelog
 
 
+## [1.1.8] - 2025-04-16
+### Adicionado
+- Novas funcionalidades
+
 ## [1.1.7] - 2025-03-21
 ### Adicionado
 - Ajuste na documentação

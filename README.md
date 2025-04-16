@@ -13,6 +13,10 @@
 - 🛡️ **Validações automatizadas de dados e esquemas.**
 - 📊 **Suporte a múltiplas planilhas.**
 - ✅ **Integração com `pytest` para testes automatizados.**
+- 🔒 **Suporte a arquivos Excel protegidos por senha.**
+- 📝 **Validação de células vazias.**
+- 🎨 **Formatação condicional.**
+- 📈 **Manipulação de fórmulas e gráficos.**
 
 ---
 
@@ -24,7 +28,7 @@ Instale o pacote via **PyPI**:
 pip install excel_toolkit_for_py
 ```
 
-> 💡 As dependências `pandas` e `openpyxl` são instaladas automaticamente.
+> 💡 As dependências `pandas`, `openpyxl`, `msoffcrypto-tool`, `xlrd` e `xlwt` são instaladas automaticamente.
 
 ---
 
@@ -116,6 +120,75 @@ print("✅ Validação bem-sucedida!" if validacao else "❌ Validação falhou.
 
 ---
 
+### 🔒 **Trabalhando com Arquivos Protegidos**
+
+```python
+from excel_toolkit_for_py.advanced_features import read_protected_excel, protect_excel
+
+# Ler um arquivo protegido
+df = read_protected_excel("arquivo_protegido.xlsx", password="minha_senha")
+
+# Proteger um arquivo
+protect_excel("arquivo.xlsx", password="nova_senha")
+```
+
+---
+
+### 📝 **Validação de Células Vazias**
+
+```python
+from excel_toolkit_for_py.advanced_features import validate_empty_cells
+
+# Validar células vazias
+resultado = validate_empty_cells(df, threshold=0.1)
+print(f"Células vazias: {resultado['empty_cells']}")
+print(f"Colunas com muitas células vazias: {resultado['columns_above_threshold']}")
+```
+
+---
+
+### 🎨 **Formatação Condicional**
+
+```python
+from excel_toolkit_for_py.advanced_features import apply_conditional_formatting
+
+# Aplicar formatação condicional
+regras = [{
+    'range': 'A1:C10',
+    'type': 'cellIs',
+    'operator': '>',
+    'formula': '30',
+    'format': {
+        'fill': 'FF0000',
+        'font': {'bold': True}
+    }
+}]
+
+apply_conditional_formatting("arquivo.xlsx", regras)
+```
+
+---
+
+### 📈 **Manipulação de Fórmulas e Gráficos**
+
+```python
+from excel_toolkit_for_py.advanced_features import extract_formulas, add_chart
+
+# Extrair fórmulas
+formulas = extract_formulas("arquivo.xlsx")
+print(f"Fórmulas encontradas: {formulas}")
+
+# Adicionar gráfico
+add_chart(
+    file_path="arquivo.xlsx",
+    chart_type="bar",
+    data_range="A1:B10",
+    title="Meu Gráfico"
+)
+```
+
+---
+
 ## 🧪 **Testes**
 
 Execute os testes unitários com **pytest**:
@@ -137,12 +210,14 @@ excel_toolkit/
 │   ├── writer.py            # 📤 Funções de exportação
 │   ├── conversions.py       # 🔄 Funções de conversão Excel <-> JSON
 │   ├── validations.py       # 🛡️ Funções de validação de dados
+│   ├── advanced_features.py # 🔧 Funções avançadas
 │
 ├── tests/                   # 🧪 Testes unitários
 │   ├── test_reader.py
 │   ├── test_writer.py
 │   ├── test_conversions.py
 │   ├── test_validations.py
+│   ├── test_advanced_features.py
 │
 ├── setup.py                 # ⚙️ Configuração para PyPI
 ├── pyproject.toml           # 📦 Configuração moderna
