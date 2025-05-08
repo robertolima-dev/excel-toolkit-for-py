@@ -17,6 +17,7 @@
 - 📝 **Validação de células vazias.**
 - 🎨 **Formatação condicional.**
 - 📈 **Manipulação de fórmulas e gráficos.**
+- 📦 **Exportação para múltiplos formatos (JSON, XML, HTML, PDF).**
 
 ---
 
@@ -28,7 +29,7 @@ Instale o pacote via **PyPI**:
 pip install excel_toolkit_for_py
 ```
 
-> 💡 As dependências `pandas`, `openpyxl`, `msoffcrypto-tool`, `xlrd` e `xlwt` são instaladas automaticamente.
+> 💡 As dependências `pandas`, `openpyxl`, `msoffcrypto-tool`, `xlrd`, `xlwt`, `weasyprint` e `jinja2` são instaladas automaticamente.
 
 ---
 
@@ -185,6 +186,55 @@ add_chart(
     data_range="A1:B10",
     title="Meu Gráfico"
 )
+```
+
+---
+
+### 📦 **Exportação para Múltiplos Formatos**
+
+```python
+from excel_toolkit_for_py.exporters import to_json, to_xml, to_html, to_pdf
+import pandas as pd
+
+# Criar dados de exemplo
+df = pd.DataFrame({
+    "Nome": ["Alice", "Bob", "Carlos"],
+    "Idade": [25, 30, 22],
+    "Cidade": ["São Paulo", "Rio", "BH"]
+})
+
+# Exportar para JSON
+to_json(df, "dados.json")
+
+# Exportar para XML
+to_xml(df, "dados.xml")
+
+# Exportar para HTML (com template opcional)
+to_html(df, "dados.html", template_path="template.html")
+
+# Exportar para PDF (com template opcional)
+to_pdf(df, "dados.pdf", template_path="template.html")
+```
+
+Template HTML de exemplo (`template.html`):
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relatório de Dados</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Dados</h1>
+    {{ data.to_html(index=False, classes='table') }}
+</body>
+</html>
 ```
 
 ---

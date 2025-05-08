@@ -3,7 +3,11 @@
 
 ## [1.1.8] - 2025-04-16
 ### Adicionado
-- Novas funcionalidades
+- Novas funcionalidades de exportação:
+  - Exportação para JSON com suporte a DataFrames e dicionários
+  - Exportação para XML com suporte a DataFrames e dicionários
+  - Exportação para HTML com suporte a templates personalizados
+  - Exportação para PDF com suporte a templates personalizados
 
 ## [1.1.7] - 2025-03-21
 ### Adicionado
