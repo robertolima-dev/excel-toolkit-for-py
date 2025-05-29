@@ -1,6 +1,17 @@
 # 📜 Changelog
 
 
+## [1.3.0] - 2025-05-29
+### Adicionado
+- Novo módulo de Análise de Dados (`data_analysis.py`) com as funções:
+  - `calculate_basic_stats`: Estatísticas básicas (média, mediana, moda, desvio padrão, mínimo, máximo, quartis)
+  - `detect_outliers`: Detecção de outliers por z-score ou IQR
+  - `calculate_correlations`: Matriz de correlação entre colunas numéricas
+  - `create_pivot_table`: Criação de tabela dinâmica (pivot table)
+- Testes automatizados para todas as funções de análise de dados
+- Exemplo de uso das funções de análise de dados adicionado ao README
+- Dependências `numpy` e `scipy` adicionadas ao setup
+
 ## [1.1.8] - 2025-04-16
 ### Adicionado
 - Novas funcionalidades de exportação:

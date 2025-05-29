@@ -239,6 +239,46 @@ Template HTML de exemplo (`template.html`):
 
 ---
 
+### 📊 **Análise de Dados: Estatísticas, Outliers, Correlações e Pivot Table**
+
+```python
+from excel_toolkit_for_py.data_analysis import (
+    calculate_basic_stats, detect_outliers, calculate_correlations, create_pivot_table
+)
+import pandas as pd
+
+# Exemplo de DataFrame
+sample_df = pd.DataFrame({
+    'A': [1, 2, 3, 4, 5, 100],  # Inclui outlier
+    'B': [10, 20, 30, 40, 50, 60],
+    'C': ['a', 'b', 'c', 'd', 'e', 'f'],
+    'D': [1.1, 2.2, 3.3, 4.4, 5.5, 6.6]
+})
+
+# Estatísticas básicas
+stats = calculate_basic_stats(sample_df)
+print(stats)
+
+# Detecção de outliers
+outliers = detect_outliers(sample_df, method='zscore', threshold=2.0)
+print(outliers)
+
+# Correlações
+corr = calculate_correlations(sample_df)
+print(corr)
+
+# Tabela dinâmica (pivot table)
+pivot = create_pivot_table(
+    sample_df,
+    index='C',
+    values=['A', 'B'],
+    aggfunc='mean'
+)
+print(pivot)
+```
+
+---
+
 ## 🧪 **Testes**
 
 Execute os testes unitários com **pytest**:

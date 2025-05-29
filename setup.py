@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="excel_toolkit_for_py",
-    version="1.2.0",
+    version="1.3.0",
     author="Roberto Lima",
     author_email="robertolima.izphera@gmail.com",
     description="📊 Facilite a leitura, manipulação, conversão, validação e exportação de arquivos Excel e CSV com Python.", # noqa501
@@ -15,7 +15,9 @@ setup(
         "openpyxl>=3.0.0",
         "msoffcrypto-tool>=5.1.1",
         "xlrd>=2.0.1",
-        "xlwt>=1.3.0"
+        "xlwt>=1.3.0",
+        "numpy>=1.19.0",
+        "scipy>=1.7.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
