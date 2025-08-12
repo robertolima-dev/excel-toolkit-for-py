@@ -29,7 +29,7 @@ Instale o pacote via **PyPI**:
 pip install excel_toolkit_for_py
 ```
 
-> 💡 As dependências `pandas`, `openpyxl`, `msoffcrypto-tool`, `xlrd`, `xlwt`, `weasyprint` e `jinja2` são instaladas automaticamente.
+> 💡 As dependências `pandas`, `openpyxl`, `msoffcrypto-tool`, `xlrd`, `xlwt`, `weasyprint`, `jinja2`, `numpy` e `scipy` são instaladas automaticamente.
 
 ---
 
@@ -301,6 +301,9 @@ excel_toolkit/
 │   ├── conversions.py       # 🔄 Funções de conversão Excel <-> JSON
 │   ├── validations.py       # 🛡️ Funções de validação de dados
 │   ├── advanced_features.py # 🔧 Funções avançadas
+│   ├── data_analysis.py     # 📊 Funções de análise de dados
+│   ├── exporters.py         # 📤 Funções de exportação
+│   ├── utils.py             # 🛠️ Funções utilitárias
 │
 ├── tests/                   # 🧪 Testes unitários
 │   ├── test_reader.py
@@ -308,6 +311,8 @@ excel_toolkit/
 │   ├── test_conversions.py
 │   ├── test_validations.py
 │   ├── test_advanced_features.py
+│   ├── test_data_analysis.py
+│   ├── test_exporters.py
 │
 ├── setup.py                 # ⚙️ Configuração para PyPI
 ├── pyproject.toml           # 📦 Configuração moderna

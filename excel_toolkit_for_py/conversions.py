@@ -31,7 +31,7 @@ def excel_to_json(file_path, sheet_name=None):
         raise ValueError(f"❌ Erro ao converter Excel para JSON: {str(e)}")
 
 
-def json_to_excel(json_data, file_path, sheet_name="Sheet1"):  
+def json_to_excel(json_data, file_path, sheet_name="Sheet1"):
     """
     🔄 Converte dados JSON em um arquivo Excel.
 
@@ -49,12 +49,14 @@ def json_to_excel(json_data, file_path, sheet_name="Sheet1"):
                 for sheet, data in json_data.items():
                     pd.DataFrame(data).to_excel(writer, sheet_name=sheet, index=False)
         else:
-            pd.DataFrame(json_data).to_excel(file_path, sheet_name=sheet_name, index=False)
+            pd.DataFrame(json_data).to_excel(
+                file_path, sheet_name=sheet_name, index=False
+            )
     except Exception as e:
         raise ValueError(f"❌ Erro ao converter JSON para Excel: {str(e)}")
 
 
-def excel_to_csv(excel_path, csv_path, sheet_name=0, encoding='utf-8', **kwargs):
+def excel_to_csv(excel_path, csv_path, sheet_name=0, encoding="utf-8", **kwargs):
     """
     🔄 Converte um arquivo Excel em CSV.
 
@@ -75,7 +77,7 @@ def excel_to_csv(excel_path, csv_path, sheet_name=0, encoding='utf-8', **kwargs)
         raise ValueError(f"❌ Erro ao converter Excel para CSV: {str(e)}")
 
 
-def csv_to_excel(csv_path, excel_path, sheet_name="Sheet1", encoding='utf-8', **kwargs):
+def csv_to_excel(csv_path, excel_path, sheet_name="Sheet1", encoding="utf-8", **kwargs):
     """
     🔄 Converte um arquivo CSV em Excel.
 

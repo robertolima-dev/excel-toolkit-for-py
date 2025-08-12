@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import pytest
 import pandas as pd
@@ -10,10 +10,7 @@ from excel_toolkit_for_py.conversions import excel_to_json, json_to_excel
 
 @pytest.fixture
 def sample_json_data():
-    return [
-        {"Nome": "Alice", "Idade": 30},
-        {"Nome": "Bob", "Idade": 25}
-    ]
+    return [{"Nome": "Alice", "Idade": 30}, {"Nome": "Bob", "Idade": 25}]
 
 
 @pytest.fixture

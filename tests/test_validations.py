@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # 🧪 tests/test_validations.py
 import pytest
@@ -12,11 +12,13 @@ from excel_toolkit_for_py.validations import validate_excel_schema
 @pytest.fixture
 def sample_excel_file(tmp_path):
     """📁 Cria um arquivo Excel de exemplo para testes."""
-    df = pd.DataFrame({
-        "Nome": ["Alice", "Bob", "Carlos"],
-        "Idade": [30, 25, 22],
-        "Salario": [5000.0, 4000.0, 3000.0]
-    })
+    df = pd.DataFrame(
+        {
+            "Nome": ["Alice", "Bob", "Carlos"],
+            "Idade": [30, 25, 22],
+            "Salario": [5000.0, 4000.0, 3000.0],
+        }
+    )
     file_path = tmp_path / "sample.xlsx"
     df.to_excel(file_path, index=False)
     return file_path

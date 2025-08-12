@@ -1,6 +1,19 @@
 # 📜 Changelog
 
 
+## [1.4.0] - 2025-01-29
+### Changed
+- Updated all code comments and documentation to English
+- Updated minimum Python version to 3.8+
+- Updated dependencies to latest compatible versions
+- Added scipy dependency to pyproject.toml
+- Fixed version inconsistencies across all files
+
+### Added
+- Enhanced error handling and validation
+- Improved code formatting and structure
+- Better type hints and documentation
+
 ## [1.3.0] - 2025-05-29
 ### Adicionado
 - Novo módulo de Análise de Dados (`data_analysis.py`) com as funções:

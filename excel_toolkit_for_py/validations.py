@@ -11,11 +11,15 @@ def _check_dtype(series, expected_type):
         if expected_type == int:
             return series.dropna().apply(lambda x: float(x).is_integer()).all()
         elif expected_type == float:
-            return series.dropna().apply(lambda x: isinstance(x, (float, int))).all() # noqa501
+            return (
+                series.dropna().apply(lambda x: isinstance(x, (float, int))).all()
+            )  # noqa501
         elif expected_type == str:
             return series.dropna().apply(lambda x: isinstance(x, str)).all()
         else:
-            return series.dropna().apply(lambda x: isinstance(x, expected_type)).all() # noqa501
+            return (
+                series.dropna().apply(lambda x: isinstance(x, expected_type)).all()
+            )  # noqa501
     except Exception:
         return False
 
@@ -53,7 +57,9 @@ def validate_excel_schema(file_path, schema, sheet_name=None):
                 # 🎯 Validação robusta de tipo
                 if not _check_dtype(df[coluna], tipo):
                     resultado["valid"] = False
-                    resultado["errors"].append(f"⚠️ Coluna '{coluna}' com tipo inválido. Esperado: {tipo.__name__}") # noqa501
+                    resultado["errors"].append(
+                        f"⚠️ Coluna '{coluna}' com tipo inválido. Esperado: {tipo.__name__}"
+                    )  # noqa501
 
     except Exception as e:
         resultado["valid"] = False
@@ -93,7 +99,7 @@ def validate_excel(file_path, sheet_name=None, **kwargs):
             "colunas": len(df.columns),
             "nomes_colunas": list(df.columns),
             "tipos_colunas": {col: str(df[col].dtype) for col in df.columns},
-            "valores_nulos": df.isnull().sum().to_dict()
+            "valores_nulos": df.isnull().sum().to_dict(),
         }
 
     except Exception as e:
@@ -103,7 +109,7 @@ def validate_excel(file_path, sheet_name=None, **kwargs):
     return resultado
 
 
-def validate_csv(file_path, encoding='utf-8', **kwargs):
+def validate_csv(file_path, encoding="utf-8", **kwargs):
     """
     🛡️ Valida um arquivo CSV.
 
@@ -130,7 +136,7 @@ def validate_csv(file_path, encoding='utf-8', **kwargs):
             "colunas": len(df.columns),
             "nomes_colunas": list(df.columns),
             "tipos_colunas": {col: str(df[col].dtype) for col in df.columns},
-            "valores_nulos": df.isnull().sum().to_dict()
+            "valores_nulos": df.isnull().sum().to_dict(),
         }
 
     except Exception as e:
