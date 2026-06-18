@@ -314,8 +314,7 @@ excel_toolkit/
 │   ├── test_data_analysis.py
 │   ├── test_exporters.py
 │
-├── setup.py                 # ⚙️ Configuração para PyPI
-├── pyproject.toml           # 📦 Configuração moderna
+├── pyproject.toml           # ⚙️ Configuração do pacote
 ├── README.md                # 📚 Documentação do projeto
 ├── LICENSE                  # 📜 Licença MIT
 └── MANIFEST.in              # 📋 Inclusão de arquivos extras
