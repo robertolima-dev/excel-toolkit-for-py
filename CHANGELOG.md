@@ -1,6 +1,18 @@
 # 📜 Changelog
 
 
+## [1.4.1] - 2026-06-18
+### Fixed
+- `pyproject.toml` was missing `license = { text = "MIT" }` and the
+  `License :: OSI Approved :: MIT License` classifier, so the published
+  PyPI page didn't display the license correctly.
+
+### Changed
+- Removed duplicated `setup.py`; `pyproject.toml` is now the single
+  source of package metadata. Build via `python -m build` + `twine
+  check`, with CI (`ci.yml`) and tag-triggered release (`release.yml`)
+  publishing to PyPI.
+
 ## [1.4.0] - 2025-01-29
 ### Changed
 - Updated all code comments and documentation to English
